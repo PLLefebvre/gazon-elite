@@ -108,6 +108,39 @@
         .card h3 { font-size: 1.6rem; color: var(--primary-green); text-transform: uppercase; margin: 0; }
         .card .visits { font-size: 3.5rem; font-weight: 900; display: block; margin: 15px 0; }
 
+
+  /* --- NOUVEAU CSS POUR LES VISITES --- */
+
+        /* 1. Le conteneur qui empile le nombre et le texte */
+        .card .visits-container {
+            display: flex;
+            flex-direction: column; /* Empile verticalement */
+            align-items: center;    /* Centre horizontalement */
+            justify-content: center;
+            margin: 15px 0;         /* Espace vertical autour du bloc */
+        }
+
+        /* 2. Le style du grand nombre (votre ancien style) */
+        .card .visits-container .number {
+            font-size: 3.5rem;      /* Très grand */
+            font-weight: 900;
+            line-height: 1;         /* Colle le texte en dessous */
+            color: var(--white);    /* Ou la couleur de votre choix */
+        }
+
+        /* 3. Le style du mot "VISITES" en dessous */
+        .card .visits-container .text {
+            font-size: 0.8rem;      /* Plus petit */
+            font-weight: 800;       /* Reste gras pour le style Élite */
+            text-transform: uppercase; /* Majuscules */
+            letter-spacing: 2px;    /* Espacement des lettres pour le look premium */
+            color: var(--primary-green); /* En vert pour faire un rappel */
+            opacity: 0.9;           /* Légèrement transparent */
+            margin-top: -5px;       /* Resserre l'espace avec le nombre */
+        }
+
+
+
         .custom-box {
             margin-top: 50px; background: linear-gradient(90deg, rgba(46, 204, 113, 0.1), rgba(28, 40, 51, 0.5));
             border-radius: 20px; padding: 30px; border: 1px solid var(--primary-green);
@@ -195,12 +228,18 @@
             <div class="forfaits-grid">
                 <a href="#contact" class="card">
                     <h3>Freedom</h3>
-                    <span class="visits">10</span>
+                    <div class="visits-container">
+                        <span class="number">10</span>
+                        <span class="text">VISITS</span>
+                    </div>
                     <p class="tagline">Perfect for vacations or peak growth periods.</p>
                 </a>
                 <a href="#contact" class="card featured">
                     <h3>Serenity</h3>
-                    <span class="visits">15</span>
+                    <div class="visits-container">
+                        <span class="number">15</span>
+                        <span class="text">VISITS</span>
+                    </div>
                     <p class="tagline">The ideal balance. Our most popular package.</p>
                 </a>
                 <a href="#contact" class="card">
@@ -235,6 +274,7 @@
                 </div>
 
                 <form action="https://formspree.io/f/xjgpykgj" method="POST">
+                    <input type="hidden" name="_next" value="https://gazon-elite.pages.dev/merci">
                     <div class="form-group">
                         <label>FULL NAME</label>
                         <input type="text" name="name" required>
